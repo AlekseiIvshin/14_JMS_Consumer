@@ -18,6 +18,16 @@
 		</property>
 	</bean>
 
+
+	<bean id="jmsTopicTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="pubSubDomain" value="true" />
+	</bean>
+
+	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg index="0" value="${jms.topic.name}" />
+	</bean>
+
 	<bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQQueue">
 		<constructor-arg index="0" value="${jms.queue.name}" />
 	</bean>
@@ -28,4 +38,37 @@
 		<property name="destination" ref="defaultDestination" />
 		<property name="messageListener" ref="helloMessageListner" />
 	</bean>
+
+	<bean id="jmsTopicContainer"
+		class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destinationResolver" ref="destinationResolver" />
+		<property name="concurrentConsumers" value="3" />
+		<property name="destinationName" value="topicDestination" />
+		<property name="messageListener" ref="subscriber" />
+		<property name="sessionAcknowledgeModeName" value="AUTO_ACKNOWLEDGE" />
+		<property name="pubSubDomain" value="true" />
+	</bean>
+
+	<bean id="destinationResolver"
+		class="org.springframework.jms.support.destination.BeanFactoryDestinationResolver" />
+
+	<!-- <bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate"> -->
+	<!-- <property name="environment"> -->
+	<!-- <props> -->
+	<!-- <prop key="java.naming.factory.initial"> -->
+	<!-- org.apache.activemq.jndi.ActiveMQInitialContextFactory -->
+	<!-- </prop> -->
+	<!-- <prop key="java.naming.provider.url">tcp://localhost:61616</prop> -->
+	<!-- </props> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+	<!-- <bean id="jndiTopicConnFactory" class="org.springframework.jndi.JndiObjectFactoryBean"> -->
+	<!-- <property name="jndiTemplate" ref="jndiTemplate" /> -->
+	<!-- <property name="jndiName" value="TopicCF" /> -->
+	<!-- </bean> -->
+
+
+
 </beans>
