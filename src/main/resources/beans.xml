@@ -9,7 +9,7 @@
 
 	<jms:annotation-driven />
 	<context:annotation-config />
-	<context:component-scan base-package="ru.udm.jms.consumer" />
+	<context:component-scan base-package="ru.udm.jms" />
 	<context:property-placeholder location="classpath:config.properties" />
 
 	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
@@ -17,8 +17,6 @@
 			<value>tcp://localhost:61616</value>
 		</property>
 	</bean>
-	
-	<bean id="helloMessageListner" class="ru.udm.consumer.HelloMessageListner"/>
 
 	<bean id="defaultDestination" class="org.apache.activemq.command.ActiveMQQueue">
 		<constructor-arg index="0" value="${jms.queue.name}" />
