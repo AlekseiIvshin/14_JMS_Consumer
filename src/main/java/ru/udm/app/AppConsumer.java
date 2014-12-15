@@ -28,14 +28,11 @@ public class AppConsumer {
 	}
 
 	public static void director(AppConsumer app) {
+		app.init();
 		try (Scanner sc = new Scanner(System.in)) {
 			String line = "";
 			while ((line = sc.next()) != null && !line.isEmpty()) {
 				switch (line) {
-				case "init":
-					app.init();
-					LOGGER.debug("AppConsumer started");
-					break;
 				case "exit":
 					app.close();
 					LOGGER.debug("AppConsumer closed");

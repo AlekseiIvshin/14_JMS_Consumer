@@ -21,7 +21,7 @@ public class Subscriber implements MessageListener{
 	public void onMessage(Message message) {
 		if (message instanceof TextMessage) {
 			try {
-				LOGGER.debug(((TextMessage) message).getText());
+				LOGGER.debug("Subscriber: {}",((TextMessage) message).getText());
 			} catch (JMSException e) {
 				e.printStackTrace();
 			}

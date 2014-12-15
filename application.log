@@ -1,8 +1,0 @@
-11:18:48.583 [main] DEBUG ru.udm.app.AppConsumer - AppConsumer started
-11:18:58.707 [jmsTopicContainer-1] DEBUG ru.udm.jms.queue.HelloMessageListner - 
-11:18:58.707 [jmsTopicContainer-2] DEBUG ru.udm.jms.queue.HelloMessageListner - 
-11:18:58.707 [jmsTopicContainer-3] DEBUG ru.udm.jms.queue.HelloMessageListner - 
-11:19:58.214 [main] DEBUG ru.udm.app.AppConsumer - AppConsumer started
-11:20:20.078 [jmsTopicContainer-1] DEBUG ru.udm.jms.queue.HelloMessageListner - HIIIIIASDASKnfgkASNGFKLANGGA
-11:20:20.078 [jmsTopicContainer-2] DEBUG ru.udm.jms.queue.HelloMessageListner - HIIIIIASDASKnfgkASNGFKLANGGA
-11:20:20.078 [jmsTopicContainer-3] DEBUG ru.udm.jms.queue.HelloMessageListner - HIIIIIASDASKnfgkASNGFKLANGGA
