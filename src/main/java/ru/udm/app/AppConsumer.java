@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericGroovyApplicationContext;
 
 public class AppConsumer {
 
@@ -18,7 +18,7 @@ public class AppConsumer {
 	}
 
 	public void init() {
-		context = new ClassPathXmlApplicationContext("beans.xml");
+		context = new GenericGroovyApplicationContext("file:src/main/resources/beans.groovy");
 	}
 
 	public void close() {
