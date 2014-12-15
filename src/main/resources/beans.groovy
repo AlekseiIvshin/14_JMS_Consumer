@@ -35,7 +35,7 @@ beans {
 		connectionFactory = ref('connectionFactory')
 		destinationResolver = ref('destinationResolver')
 		concurrentConsumers = 1
-		destinationName = 'topicDestination'
+		destinationName = '${broker.topic.name}'
 		messageListener = ref('subscriber')
 		sessionAcknowledgeModeName = 'AUTO_ACKNOWLEDGE'
 		pubSubDomain = true
@@ -45,7 +45,7 @@ beans {
 		connectionFactory = ref('connectionFactory')
 		destinationResolver = ref('destinationResolver')
 		concurrentConsumers = 1
-		destinationName = 'topicDestination'
+		destinationName = '${broker.topic.name}'
 		messageListener = ref('durableSubscriber')
 		sessionAcknowledgeModeName = 'AUTO_ACKNOWLEDGE'
 		pubSubDomain = true
