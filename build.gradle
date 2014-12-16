@@ -13,5 +13,6 @@ dependencies{
 	compile 'org.springframework:spring-context:4.1.3.RELEASE'
 	compile 'org.springframework:spring-jms:4.1.3.RELEASE'
 	compile 'org.mockito:mockito-all:1.9.5'
+	compile 'org.apache.activemq:activemq-core:5.7.0'
 	
 }
