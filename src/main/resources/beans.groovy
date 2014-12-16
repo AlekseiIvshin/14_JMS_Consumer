@@ -6,6 +6,7 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer
 import org.springframework.jms.support.destination.BeanFactoryDestinationResolver
 import org.apache.activemq.command.ActiveMQTopic
 import org.apache.activemq.command.ActiveMQQueue
+import org.springframework.transaction.jta.JtaTransactionManager
 
 
 beans {
@@ -29,13 +30,14 @@ beans {
 		connectionFactory = ref('connectionFactory')
 		destination = ref('queueDestination')
 		messageListener = ref('helloMessageListner')
+		messageSelector = "type <> 'ignore'"
 	}
 
 	jmsTopicContainer(DefaultMessageListenerContainer){
 		connectionFactory = ref('connectionFactory')
 		destinationResolver = ref('destinationResolver')
 		concurrentConsumers = 1
-		destinationName = '${broker.topic.name}'
+		destination = ref('topicDestination')
 		messageListener = ref('subscriber')
 		sessionAcknowledgeModeName = 'AUTO_ACKNOWLEDGE'
 		pubSubDomain = true
@@ -45,7 +47,7 @@ beans {
 		connectionFactory = ref('connectionFactory')
 		destinationResolver = ref('destinationResolver')
 		concurrentConsumers = 1
-		destinationName = '${broker.topic.name}'
+		destination = ref('topicDestination')
 		messageListener = ref('durableSubscriber')
 		sessionAcknowledgeModeName = 'AUTO_ACKNOWLEDGE'
 		pubSubDomain = true

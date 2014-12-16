@@ -17,11 +17,13 @@ public class HelloMessageListner implements MessageListener {
 	@Override
 	public void onMessage(Message message) {
 		if (message instanceof TextMessage) {
+			String value = null;
 			try {
-				LOGGER.debug(((TextMessage) message).getText());
+				value = ((TextMessage) message).getText();
 			} catch (JMSException e) {
-				e.printStackTrace();
+				LOGGER.error("Get message text error", e);
 			}
+			LOGGER.debug("QueueListner: {}", value);
 		}
 	}
 
