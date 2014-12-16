@@ -22,7 +22,7 @@ beans {
 //	jms.'annotation-driven'
 
 
-	connectionFactory(ActiveMQConnectionFactory){ brokerURL = 'tcp://localhost:61616' }
+	connectionFactory(ActiveMQConnectionFactory){ brokerURL = '${broker.url}' }
 
 	destinationResolver(BeanFactoryDestinationResolver)
 

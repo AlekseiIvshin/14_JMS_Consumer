@@ -3,8 +3,7 @@
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">
-			<Pattern>%d{dd:MM HH:mm:ss.SSS} [%thread] [%-5level] [%logger{36}] -
-				%msg%n
+			<Pattern>%d{dd:MM HH:mm:ss.SSS} [%thread] [%-5level] [%logger{36}] - %msg%n
 			</Pattern>
 		</layout>
 	</appender>
@@ -13,8 +12,7 @@
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
 		<file>application.log</file>
 		<encoder>
-			<pattern>%d{dd:MM HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
-				%msg%n
+			<pattern>%d{dd:MM HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
 			</pattern>
 		</encoder>
 	</appender>
@@ -26,6 +24,6 @@
 
 
 	<logger name="org.apache" level="ERROR">
-		<!-- <appender-ref ref="STDOUT" /> -->
+		<appender-ref ref="FILE" />
 	</logger>
 </configuration>
