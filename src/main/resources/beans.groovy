@@ -43,7 +43,8 @@ beans {
 		pubSubDomain = true
 	}
 
-	jmsTopicDurableContainer(DefaultMessageListenerContainer){
+	jmsTopicDurableContainer(DefaultMessageListenerContainer){ 
+//		bean.scope='session'
 		connectionFactory = ref('connectionFactory')
 		destinationResolver = ref('destinationResolver')
 		concurrentConsumers = 1
